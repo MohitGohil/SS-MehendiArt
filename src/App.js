@@ -49,7 +49,7 @@ function App() {
               <li className="nav-item">
                 <a
                   className="px-3 py-2 flex justify-center items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                  href="#footer"
+                  href="#contact"
                 >
                   <span className="ml-2">Contact</span>
                 </a>
@@ -899,7 +899,7 @@ function App() {
                 </a>
               </p>
             </div>
-            <div className="">
+            <div className="" id="contact">
               <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
                 Contact
               </h6>
