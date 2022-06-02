@@ -5,3 +5,13 @@
 html {
   scroll-behavior: smooth;
 }
+
+#banner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-position: "50%";
+  background-image: url("../src/img/banner.jpg");
+}

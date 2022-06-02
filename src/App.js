@@ -1,21 +1,27 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+// import { Navbar, Content, Card, Footer, ImageSection } from "./components";
 import logo from "./img/logo.jpg";
+import mehendi from "./img/mehendi.jpg";
 import "./App.css";
 
 function App() {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const myRef = useRef(null);
+
+  const executeScroll = () => myRef.current.scrollIntoView();
+
   return (
     <div className="App" id="Home">
       {/* navbar section */}
-      <nav className="relative flex flex-wrap px-2 py-2 items-center justify-between bg-white-500 my-1">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+      <nav className="relative flex flex-wrap px-2 py-2 items-center justify-between bg-white-500">
+        <div className="container px-2 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <div className="flex items-center justify-center font-mono">
               <img className="h-10 w-10 mx-2" src={logo} alt="logo" />
-              <h1 className="text-1xl">#SangitaMehendiArt</h1>
+              <h1 className="text-1xl sm:text-1xl">#SangitaMehendiArt</h1>
             </div>
             <button
-              className="text-black border-2 hover:bg-gray-400 hover:text-white bg-gray-300 cursor-pointer ml-2 text-lg leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              className="mx-6 text-black border-2 bg-gray-200 hover:text-black cursor-pointer text-lg leading-none px-1 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
@@ -24,7 +30,7 @@ function App() {
           </div>
           <div
             className={
-              "lg:flex flex-grow items-center justify-center text-2xl mt-1" +
+              "lg:flex flex-grow mx-10 items-center justify-center text-2xl font-mono" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"
@@ -60,15 +66,16 @@ function App() {
       </nav>
 
       {/* hero section */}
-      <section id="hero_section">
+      <section>
         {/* <!-- Background image --> */}
         <div
+          id="banner"
           className="relative overflow-hidden bg-no-repeat bg-cover mb-5"
           style={{
             backgroundPosition: "50%",
-            backgroundImage:
-              "url('https://mdbcdn.b-cdn.net/img/new/slides/146.webp')",
-            height: "400px",
+            // backgroundImage: "url(./img/banner.jpg)",
+            height: "500px",
+            width: "100%",
           }}
         >
           <div
@@ -77,15 +84,20 @@ function App() {
           >
             <div className="flex justify-center items-center h-full">
               <div className="text-center text-white px-6 md:px-12">
-                <h1 className="text-5xl font-bold mt-0 mb-6">Heading</h1>
-                <h3 className="text-3xl font-bold mb-8">Subeading</h3>
+                <h1 className="text-2xl sm:text-4xl md:text-4xl lg:text-4xl font-bold mt-0 mb-6 p-2 md:mx-8">
+                  #SangitaMehendiArt
+                </h1>
+                <h3 className="text-1xl sm:text-2xl md:text-2xl lg:text-2xl font-bold mb-8 md:p-6">
+                  Mehendi designer
+                </h3>
                 <button
                   type="button"
                   className="inline-block px-6 py-2.5 border-2 border-white text-white font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
+                  onClick={executeScroll}
                 >
-                  Get started
+                  Contact Us
                 </button>
               </div>
             </div>
@@ -118,22 +130,22 @@ function App() {
               <div className="w-1/2 p-1 md:p-2">
                 <img
                   alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(70).webp"
+                  className="block object-cover object-center w-full h-full rounded-3xl shadow-lg"
+                  src={mehendi}
                 />
               </div>
               <div className="w-1/2 p-1 md:p-2">
                 <img
                   alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
+                  className="block object-cover object-center w-full h-full rounded-3xl shadow-lg"
+                  src={mehendi}
                 />
               </div>
               <div className="w-full p-1 md:p-2">
                 <img
                   alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                  className="block object-cover object-center w-full h-full rounded-3xl shadow-lg"
+                  src={mehendi}
                 />
               </div>
             </div>
@@ -141,22 +153,22 @@ function App() {
               <div className="w-full p-1 md:p-2">
                 <img
                   alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp"
+                  className="block object-cover object-center w-full h-full rounded-3xl shadow-lg"
+                  src={mehendi}
                 />
               </div>
               <div className="w-1/2 p-1 md:p-2">
                 <img
                   alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(75).webp"
+                  className="block object-cover object-center w-full h-full rounded-3xl shadow-lg"
+                  src={mehendi}
                 />
               </div>
               <div className="w-1/2 p-1 md:p-2">
                 <img
                   alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(77).webp"
+                  className="block object-cover object-center w-full h-full rounded-3xl shadow-lg"
+                  src={mehendi}
                 />
               </div>
             </div>
@@ -172,22 +184,22 @@ function App() {
               <div className="w-1/2 p-1 md:p-2">
                 <img
                   alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(70).webp"
+                  className="block object-cover object-center w-full h-full rounded-3xl shadow-lg"
+                  src={mehendi}
                 />
               </div>
               <div className="w-1/2 p-1 md:p-2">
                 <img
                   alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
+                  className="block object-cover object-center w-full h-full rounded-3xl shadow-lg"
+                  src={mehendi}
                 />
               </div>
               <div className="w-full p-1 md:p-2">
                 <img
                   alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                  className="block object-cover object-center w-full h-full rounded-3xl shadow-lg"
+                  src={mehendi}
                 />
               </div>
             </div>
@@ -195,22 +207,22 @@ function App() {
               <div className="w-full p-1 md:p-2">
                 <img
                   alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp"
+                  className="block object-cover object-center w-full h-full rounded-3xl shadow-lg"
+                  src={mehendi}
                 />
               </div>
               <div className="w-1/2 p-1 md:p-2">
                 <img
                   alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(75).webp"
+                  className="block object-cover object-center w-full h-full rounded-3xl shadow-lg"
+                  src={mehendi}
                 />
               </div>
               <div className="w-1/2 p-1 md:p-2">
                 <img
                   alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(77).webp"
+                  className="block object-cover object-center w-full h-full rounded-3xl shadow-lg"
+                  src={mehendi}
                 />
               </div>
             </div>
@@ -249,11 +261,7 @@ function App() {
                     data-mdb-ripple="true"
                     data-mdb-ripple-color="light"
                   >
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/018.jpg"
-                      className="w-full"
-                      alt="Louvre"
-                    />
+                    <img src={mehendi} className="w-full" alt="Louvre" />
                     <a href="#!">
                       <div
                         className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -263,7 +271,7 @@ function App() {
                   </div>
 
                   <h5 className="text-lg font-bold mb-3">
-                    Welcome to California
+                    Mehendi design name
                   </h5>
                   <div className="mb-3 text-red-600 font-medium text-sm flex items-center justify-center">
                     <svg
@@ -282,7 +290,7 @@ function App() {
                     <small>
                       Published <u>13.01.2022</u> by
                       <a href="google" className="text-gray-900">
-                        Anna Maria Doe
+                        Sangita Gohil
                       </a>
                     </small>
                   </p>
@@ -301,11 +309,7 @@ function App() {
                     data-mdb-ripple="true"
                     data-mdb-ripple-color="light"
                   >
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/032.jpg"
-                      className="w-full"
-                      alt="Louvre"
-                    />
+                    <img src={mehendi} className="w-full" alt="Louvre" />
                     <a href="#!">
                       <div
                         className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -315,7 +319,7 @@ function App() {
                   </div>
 
                   <h5 className="text-lg font-bold mb-3">
-                    Exhibition in Paris
+                    Mehendi design name
                   </h5>
                   <div className="mb-3 text-blue-600 font-medium text-sm flex items-center justify-center">
                     <svg
@@ -334,7 +338,7 @@ function App() {
                     <small>
                       Published <u>12.01.2022</u> by
                       <a href="google" className="text-gray-900">
-                        Halley Frank
+                        Sangita Gohil
                       </a>
                     </small>
                   </p>
@@ -353,11 +357,7 @@ function App() {
                     data-mdb-ripple="true"
                     data-mdb-ripple-color="light"
                   >
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/059.jpg"
-                      className="w-full"
-                      alt="Louvre"
-                    />
+                    <img src={mehendi} className="w-full" alt="Louvre" />
                     <a href="#!">
                       <div
                         className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -366,7 +366,9 @@ function App() {
                     </a>
                   </div>
 
-                  <h5 className="text-lg font-bold mb-3">Stock market boom</h5>
+                  <h5 className="text-lg font-bold mb-3">
+                    Mehendi design name
+                  </h5>
                   <div className="mb-3 text-yellow-500 font-medium text-sm flex items-center justify-center">
                     <svg
                       className="w-4 h-4 mr-2"
@@ -384,7 +386,7 @@ function App() {
                     <small>
                       Published <u>10.01.2022</u> by
                       <a href="google.com" className="text-gray-900">
-                        Joe Svan
+                        Sangita Gohil
                       </a>
                     </small>
                   </p>
@@ -403,11 +405,7 @@ function App() {
                     data-mdb-ripple="true"
                     data-mdb-ripple-color="light"
                   >
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/018.jpg"
-                      className="w-full"
-                      alt="Louvre"
-                    />
+                    <img src={mehendi} className="w-full" alt="Louvre" />
                     <a href="#!">
                       <div
                         className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -417,7 +415,7 @@ function App() {
                   </div>
 
                   <h5 className="text-lg font-bold mb-3">
-                    Welcome to California
+                    Mehendi design name
                   </h5>
                   <div className="mb-3 text-red-600 font-medium text-sm flex items-center justify-center">
                     <svg
@@ -436,7 +434,7 @@ function App() {
                     <small>
                       Published <u>13.01.2022</u> by
                       <a href="google" className="text-gray-900">
-                        Anna Maria Doe
+                        Sangita Gohil
                       </a>
                     </small>
                   </p>
@@ -458,11 +456,7 @@ function App() {
                     data-mdb-ripple="true"
                     data-mdb-ripple-color="light"
                   >
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/018.jpg"
-                      className="w-full"
-                      alt="Louvre"
-                    />
+                    <img src={mehendi} className="w-full" alt="Louvre" />
                     <a href="#!">
                       <div
                         className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -472,7 +466,7 @@ function App() {
                   </div>
 
                   <h5 className="text-lg font-bold mb-3">
-                    Welcome to California
+                    Mehendi design name
                   </h5>
                   <div className="mb-3 text-red-600 font-medium text-sm flex items-center justify-center">
                     <svg
@@ -491,7 +485,7 @@ function App() {
                     <small>
                       Published <u>13.01.2022</u> by
                       <a href="google" className="text-gray-900">
-                        Anna Maria Doe
+                        Sangita Gohil
                       </a>
                     </small>
                   </p>
@@ -510,11 +504,7 @@ function App() {
                     data-mdb-ripple="true"
                     data-mdb-ripple-color="light"
                   >
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/032.jpg"
-                      className="w-full"
-                      alt="Louvre"
-                    />
+                    <img src={mehendi} className="w-full" alt="Louvre" />
                     <a href="#!">
                       <div
                         className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -524,7 +514,7 @@ function App() {
                   </div>
 
                   <h5 className="text-lg font-bold mb-3">
-                    Exhibition in Paris
+                    Mehendi design name
                   </h5>
                   <div className="mb-3 text-blue-600 font-medium text-sm flex items-center justify-center">
                     <svg
@@ -543,7 +533,7 @@ function App() {
                     <small>
                       Published <u>12.01.2022</u> by
                       <a href="google" className="text-gray-900">
-                        Halley Frank
+                        Sangita Gohil
                       </a>
                     </small>
                   </p>
@@ -562,11 +552,7 @@ function App() {
                     data-mdb-ripple="true"
                     data-mdb-ripple-color="light"
                   >
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/059.jpg"
-                      className="w-full"
-                      alt="Louvre"
-                    />
+                    <img src={mehendi} className="w-full" alt="Louvre" />
                     <a href="#!">
                       <div
                         className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -575,7 +561,9 @@ function App() {
                     </a>
                   </div>
 
-                  <h5 className="text-lg font-bold mb-3">Stock market boom</h5>
+                  <h5 className="text-lg font-bold mb-3">
+                    Mehendi design name
+                  </h5>
                   <div className="mb-3 text-yellow-500 font-medium text-sm flex items-center justify-center">
                     <svg
                       className="w-4 h-4 mr-2"
@@ -593,7 +581,7 @@ function App() {
                     <small>
                       Published <u>10.01.2022</u> by
                       <a href="google.com" className="text-gray-900">
-                        Joe Svan
+                        Sangita Gohil
                       </a>
                     </small>
                   </p>
@@ -612,11 +600,7 @@ function App() {
                     data-mdb-ripple="true"
                     data-mdb-ripple-color="light"
                   >
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/018.jpg"
-                      className="w-full"
-                      alt="Louvre"
-                    />
+                    <img src={mehendi} className="w-full" alt="Louvre" />
                     <a href="#!">
                       <div
                         className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -626,7 +610,7 @@ function App() {
                   </div>
 
                   <h5 className="text-lg font-bold mb-3">
-                    Welcome to California
+                    Mehendi design name
                   </h5>
                   <div className="mb-3 text-red-600 font-medium text-sm flex items-center justify-center">
                     <svg
@@ -645,7 +629,7 @@ function App() {
                     <small>
                       Published <u>13.01.2022</u> by
                       <a href="google" className="text-gray-900">
-                        Anna Maria Doe
+                        Sangita Gohil
                       </a>
                     </small>
                   </p>
@@ -668,7 +652,7 @@ function App() {
         </div>
         <div className="text-center">
           <img
-            src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp"
+            src={logo}
             className="rounded-full w-32 mb-4 mx-auto"
             alt="Avatar"
           />
@@ -899,7 +883,7 @@ function App() {
                 </a>
               </p>
             </div>
-            <div className="" id="contact">
+            <div ref={myRef} className="" id="contact">
               <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
                 Contact
               </h6>
@@ -957,7 +941,7 @@ function App() {
                     d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"
                   ></path>
                 </svg>
-                <a href="tel:+918888888888">+91 8888888888</a>
+                <a href="tel:+919892440538">+91 9892440538</a>
               </p>
             </div>
           </div>
